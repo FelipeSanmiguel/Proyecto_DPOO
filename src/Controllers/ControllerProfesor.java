@@ -9,6 +9,9 @@ import java.util.*;
 
 import Actividades.*;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class ControllerProfesor {
 	
@@ -39,7 +42,7 @@ public class ControllerProfesor {
 			
 			
 			for(Usuario iter: listaUsuarios) {
-					if(iter.getContraseña().equals(password) && iter.getTipoUsuario().equals("Profesor")) {
+					if(iter.getContraseña().equals(password) && iter.getClass() == Profesor.class) {
 						this.usuarioActual = (Profesor) iter;
 						return true;
 					}
@@ -51,19 +54,32 @@ public class ControllerProfesor {
 		
 	}
 	
-	public boolean crearUsuario(String nombreUsuario, String contraseña,ManagerID manager,Aplicacion sistema) {
-		
-		if(usuarioExiste(nombreUsuario,sistema)) {
-			return false;
-		}
-		
-		else {
-			int ID = manager.crearIDUsuario();
-			Usuario nuevoUsuario = new Profesor(ID, nombreUsuario, contraseña);
-			sistema.addUsuario(nuevoUsuario);
-			return true;
-		}
-		
+	public boolean crearUsuario(String nombreUsuario, String contraseña, ManagerID manager, Aplicacion sistema) {
+	    if (usuarioExiste(nombreUsuario, sistema)) {
+	        return false;
+	    }
+
+	    
+	    int ID = manager.crearIDUsuario();
+
+	    
+	    Usuario nuevoUsuario = new Profesor(ID, nombreUsuario, contraseña);
+	    sistema.addUsuario(nuevoUsuario);
+
+	    
+	    try (BufferedWriter bw = new BufferedWriter(new FileWriter("./archivosPersistencia/UsuariosPer.txt", true))) {
+	        
+	        String newUserLine = "Profesor:" + ID + ":" + nombreUsuario + ":" + contraseña;
+
+	        
+	        bw.write(newUserLine);
+	        bw.newLine(); 
+	    } catch (IOException e) {
+	        System.err.println("Error writing to persistence file: " + e.getMessage());
+	        return false; 
+	    }
+
+	    return true;
 	}
 	
 	public void crearLP(String titulo,String descripcion,String objetivos,String dificultad,ManagerID manager,Aplicacion sistema) {

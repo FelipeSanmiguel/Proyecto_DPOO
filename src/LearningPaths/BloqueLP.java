@@ -15,7 +15,7 @@ public class BloqueLP {
 	
 	private Boolean completado;
 	
-	private String resultado;
+	private int resultado;
 	
 	private Actividad actividadLP;
 	
@@ -98,11 +98,11 @@ public class BloqueLP {
 		this.completado = completado;
 	}
 
-	public String getResultado() {
+	public int getResultado() {
 		return resultado;
 	}
 
-	public void setResultado(String resultado) {
+	public void setResultado(int resultado) {
 		this.resultado = resultado;
 	}
 

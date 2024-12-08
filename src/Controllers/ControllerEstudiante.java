@@ -10,6 +10,10 @@ import java.util.ArrayList;
 
 import Actividades.*;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class ControllerEstudiante {
 	
 	private Estudiante usuarioActual;
@@ -37,7 +41,6 @@ public class ControllerEstudiante {
 		if(existe) {
 			ArrayList<Usuario> listaUsuarios = sistema.getListaUsuarios();
 			
-			ArrayList<Estudiante> listaEstudiantes = new ArrayList<Estudiante>();
 			
 			for(Usuario iter: listaUsuarios) {
 					if(iter.getContraseña().equals(password) && iter.getClass() == Estudiante.class) {
@@ -52,19 +55,33 @@ public class ControllerEstudiante {
 		
 	}
 	
-	public boolean crearUsuario(String nombreUsuario, String contraseña, ArrayList<String> intereses,ManagerID manager,Aplicacion sistema) {
-		
-		if(usuarioExiste(nombreUsuario,sistema)) {
-			return false;
-		}
-		
-		else {
-			int ID = manager.crearIDUsuario();
-			Usuario nuevoUsuario = new Estudiante(ID, nombreUsuario, contraseña,intereses);
-			sistema.addUsuario(nuevoUsuario);
-			return true;
-		}
-		
+	public boolean crearUsuario(String nombreUsuario, String contraseña, ArrayList<String> intereses, ManagerID manager, Aplicacion sistema) {
+	    if (nombreUsuario == null || contraseña == null || intereses == null || usuarioExiste(nombreUsuario, sistema)) {
+	        return false; 
+	    }
+
+	    
+	    int ID = manager.crearIDUsuario();
+
+	    
+	    Usuario nuevoUsuario = new Estudiante(ID, nombreUsuario, contraseña, intereses);
+	    sistema.addUsuario(nuevoUsuario);
+
+	   
+	    try (BufferedWriter bw = new BufferedWriter(new FileWriter("./archivosPersistencia/UsuariosPer.txt", true))) {
+	        
+	        String interesesStr = String.join(",", intereses);
+	        String newUserLine = "Estudiante:" + ID + ":" + nombreUsuario + ":" + contraseña + ":" + interesesStr;
+
+	        
+	        bw.write(newUserLine);
+	        bw.newLine(); 
+	    } catch (IOException e) {
+	        System.err.println("Error writing to persistence file: " + e.getMessage());
+	        return false; 
+	    }
+
+	    return true;
 	}
 
 	public boolean registrarseEnLP(int IDlp, Aplicacion sistema) {

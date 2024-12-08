@@ -6,9 +6,9 @@ import LearningPaths.*;
 
 public class Estudiante extends Usuario{
 	
-	ArrayList<String> intereses;
+	private ArrayList<String> intereses;
 	 
-	ArrayList<EstudianteLP> listaProgresoLPs;
+	private ArrayList<EstudianteLP> listaProgresoLPs;
 	
 	public Estudiante(int ID, String nombreUsuario, String contraseña, ArrayList<String> intereses) {
 		super(ID, nombreUsuario, contraseña);

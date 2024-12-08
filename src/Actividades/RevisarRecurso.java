@@ -4,7 +4,7 @@ import java.time.Duration;
 
 public class RevisarRecurso extends Actividad {
 	
-	String linkRecurso;
+	private String linkRecurso;
 	
 	public RevisarRecurso(int ID, String titulo, String descripcion, String objetivos, String dificultad,
 			Duration duracionEsperada, int IDcreador, String linkRecurso) 

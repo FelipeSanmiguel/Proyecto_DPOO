@@ -13,27 +13,24 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.*;
 import Utilidad.*;
+import interfazSwing.*;
+import AplicacionPaquete.*;
+import Controllers.*;
 
 public class Mi_Main {
 	
 	public static void main(String args[]) {
 		
-		
-		
-        try {
-            // Define the file path relative to the project root
-            File file = new File("archivosPersistencia/example.txt");
+		Aplicacion sistema = new Aplicacion();
+		ManagerID manager = new ManagerID();
+		sistema.cargarPersistencia(manager);
 
-            // Attempt to create the file
-            if (file.createNewFile()) {
-                System.out.println("File created: " + file.getPath());
-            } else {
-                System.out.println("File already exists.");
-            }
-        } catch (IOException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }
+		
+		ControllerEstudiante controladorEstudiante = new ControllerEstudiante();
+		ControllerProfesor controladorProfesor =  new ControllerProfesor();
+		
+		
+		new ventanaLogIn( manager, sistema,controladorEstudiante,controladorProfesor );
 		
 	}
 }
