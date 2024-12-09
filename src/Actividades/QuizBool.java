@@ -5,9 +5,9 @@ import java.util.*;
 
 public class QuizBool extends Actividad {
 	
-	int puntajeMinAprobar;
+	private int puntajeMinAprobar;
 	
-	ArrayList<PreguntaBool> preguntas; 
+	private ArrayList<PreguntaBool> preguntas; 
 	
 	public QuizBool(int ID, String titulo, String descripcion, String objetivos, String dificultad,Duration duracionEsperada,int IDcreador, int puntajeMin, ArrayList preguntas) {
 		

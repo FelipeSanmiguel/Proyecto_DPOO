@@ -9,31 +9,31 @@ import Actividades.*;
 
 public class LearningPath {
 	
-	int ID;
+	private int ID;
 	
-	String titulo;
+	private String titulo;
 	
-	String descripcion;
+	private String descripcion;
 	
-	String objetivos;
+	private String objetivos;
 	
-	String dificultad;
+	private String dificultad;
 	
-	Duration duracionEsperada;
+	private Duration duracionEsperada;
 	
-	double rating = -1;
+	private double rating = -1;
 	
-	LocalDateTime fechaCreacion;
+	private LocalDateTime fechaCreacion;
 	
-	LocalDateTime fechaEdicion;
+	private LocalDateTime fechaEdicion;
 	
-	int version = 1;
+	private int version = 1;
 	
-	ArrayList<Reseña> listaReseñas = new ArrayList<Reseña>();
+	private ArrayList<Reseña> listaReseñas = new ArrayList<Reseña>();
 	
-	ArrayList<BloqueLP> listaBloques = new ArrayList<BloqueLP>();
+	private ArrayList<BloqueLP> listaBloques = new ArrayList<BloqueLP>();
 	
-	ArrayList<EstudianteLP> listaEstudiantes = new ArrayList<EstudianteLP>();
+	private ArrayList<EstudianteLP> listaEstudiantes = new ArrayList<EstudianteLP>();
 	
 	public LearningPath(int ID, String titulo,String descripcion,String objetivos,String dificultad) {
 		this.ID = ID;

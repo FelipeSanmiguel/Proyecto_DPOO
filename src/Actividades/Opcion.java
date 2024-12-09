@@ -2,9 +2,9 @@ package Actividades;
 
 public class Opcion {
 
-	String textoOpcion;
+	private String textoOpcion;
 	
-	Boolean correcta;
+	private Boolean correcta;
 	
 	public Opcion(String textoOpcion, Boolean correcta) {
 		this.textoOpcion = textoOpcion;

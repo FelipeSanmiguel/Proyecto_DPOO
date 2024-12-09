@@ -89,6 +89,9 @@ public class ControllerProfesor {
 		sistema.addLP(nuevoLP);
 	}
 	
+	public void crearActividad() {
+		
+	}
 
 	
 	

@@ -1,0 +1,10 @@
+0:Encuesta:Que opina de la U:Responda mis preguntas:Incrementar el conocimiento del profe:Baja:PT1H:3:-1:false
+- Pregunta:Considera necesario entrenamiento de balance para sistemas? Porque?
+- Pregunta:Que opina del programa de subsidio de notas?
+1:Examen:Que opina de la U Remasterizado:Responda mis preguntas otra vez:Incrementar el conocimiento del profe 2.0:Baja:PT1H:1:-1:false
+- Pregunta:Considera necesario entrenamiento de balance para ingenieria de sistemas? Seguro?
+- Pregunta:Que opina del programa de subsidio de notas?
+2:RevisarRecurso:Aprendiendo programacion OO:Leer los mil y un principios del programador uniandino:Homologar la carrera:Baja:PT1H:1:-1:false
+- Link:youtube
+3:Tarea:Aprendiendo programacion OO en BINARIO:Leer los mil y un principios del programador uniandino:Construir una aplicacion para Homologar la carrera de derecho:Baja:PT1H:1:-1:false
+- Estado:Enviada

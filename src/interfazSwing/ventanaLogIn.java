@@ -28,6 +28,9 @@ import Controllers.*;
 
 import java.util.*;
 
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
 public class ventanaLogIn extends JFrame implements ActionListener {
 	
 	private ManagerID manager;
@@ -130,7 +133,18 @@ public class ventanaLogIn extends JFrame implements ActionListener {
     	add(panelBotones);
 	    
 	   
-	    
+    	addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                
+                sistema.actualizarPersistencia();
+                System.out.println("Data saved successfully!");
+
+                
+                dispose();
+                System.exit(0);
+            }
+        });
 	    
 	    setVisible( true );
 	}
@@ -146,6 +160,11 @@ public class ventanaLogIn extends JFrame implements ActionListener {
 
             if (usuario.isEmpty() || contraseña.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Usuario y Contraseña no pueden estar vacíos.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            if (usuario.contains(":") || contraseña.contains(":")) {
+                JOptionPane.showMessageDialog(this, "Usuario y Contraseña no pueden contener el carácter \":\".", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
         	
@@ -183,7 +202,7 @@ public class ventanaLogIn extends JFrame implements ActionListener {
         	if (radioEstudiante.isSelected()) {
         		boolean encontroEstudiante = controladorEstudiante.seleccionarUsuario(txtUsuario.getText(), txtPassword.getText(), sistema);
         		if(encontroEstudiante) {
-        			openDashBoardEstudiante();
+        			abrirDashBoardEstudiante();
         			System.out.println("EntroE");
         		}
         		else {
@@ -195,6 +214,7 @@ public class ventanaLogIn extends JFrame implements ActionListener {
         	else if(radioProfesor.isSelected()){
         		boolean encontroProfesor = controladorProfesor.seleccionarUsuario(txtUsuario.getText(), txtPassword.getText(), sistema);
         		if(encontroProfesor) {
+        			abrirDashBoardProfesor();
         			System.out.println("EntroP");
         		}
         		else {
@@ -208,11 +228,20 @@ public class ventanaLogIn extends JFrame implements ActionListener {
         
     }
 	
-	private void openDashBoardEstudiante() {
-        this.dispose();
+	
+	
+	private void abrirDashBoardEstudiante() {
+        
 
         DashBoardEstudiante dashboard = new DashBoardEstudiante(manager, sistema, controladorEstudiante, controladorProfesor);
         dashboard.setVisible(true);
     }
+	
+	private void abrirDashBoardProfesor() {
+	    
+
+	    DashBoardProfesor dashboard = new DashBoardProfesor(manager, sistema, controladorProfesor, controladorEstudiante);
+	    dashboard.setVisible(true);
+	}
 	
 }

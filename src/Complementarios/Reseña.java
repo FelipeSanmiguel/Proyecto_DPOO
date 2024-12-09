@@ -2,14 +2,14 @@ package Complementarios;
 
 public class Reseña {
 	
-	String textoReseña;
+	private String textoReseña;
 	
 	/*
 	 * El rating es de 1 a 5
 	 */
-	int rating;
+	private int rating;
 	
-	int IDcreador;
+	private int IDcreador;
 	
 	public Reseña(String texto, int rating, int IDcreador) {
 		this.textoReseña = texto;

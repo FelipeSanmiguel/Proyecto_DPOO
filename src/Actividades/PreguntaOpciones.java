@@ -4,11 +4,11 @@ import java.util.*;
 
 public class PreguntaOpciones {
 	
-	String textoPregunta;
+	private String textoPregunta;
 	
-	String explicacionRespuesta;
+	private String explicacionRespuesta;
 	
-	ArrayList<Opcion> opciones;
+	private ArrayList<Opcion> opciones;
 	
 	public PreguntaOpciones(String texto,String explicacion, ArrayList<Opcion> opciones) {
 		this.textoPregunta = texto;

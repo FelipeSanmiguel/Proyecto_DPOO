@@ -4,7 +4,7 @@ import java.util.Date;
 import java.time.*;
 
 public class Tarea extends Actividad {
-	String estado;
+	private String estado;
 	
 	public Tarea(int ID, String titulo, String descripcion, String objetivos, String dificultad,Duration duracionEsperada, int IDcreador) {
 		

@@ -1,5 +1,7 @@
 Estudiante:0:Roberto:000:Medicina,Arte
 Estudiante:1:Camilo:456:Matematicas
 Profesor:2:Juan:789
-Estudiante:3:alfredo:999
+Estudiante:3:alfredo:999:
 Profesor:3:juan:55
+Estudiante:4:santi:111:
+Estudiante:5:ed:333:

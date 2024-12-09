@@ -5,9 +5,9 @@ import java.util.*;
 
 public class Encuesta extends Actividad {
 
-	String estado;
+	private String estado;
 	
-	ArrayList<String> preguntasAbiertas;
+	private ArrayList<String> preguntasAbiertas;
 	
 	private ArrayList<String> respuestas;
 	

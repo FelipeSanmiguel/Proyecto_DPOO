@@ -30,7 +30,11 @@ public class Mi_Main {
 		ControllerProfesor controladorProfesor =  new ControllerProfesor();
 		
 		
+		
+		
+		
 		new ventanaLogIn( manager, sistema,controladorEstudiante,controladorProfesor );
 		
+
 	}
 }

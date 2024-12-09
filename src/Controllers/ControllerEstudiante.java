@@ -67,7 +67,6 @@ public class ControllerEstudiante {
 	    Usuario nuevoUsuario = new Estudiante(ID, nombreUsuario, contraseña, intereses);
 	    sistema.addUsuario(nuevoUsuario);
 
-	   
 	    try (BufferedWriter bw = new BufferedWriter(new FileWriter("./archivosPersistencia/UsuariosPer.txt", true))) {
 	        
 	        String interesesStr = String.join(",", intereses);
@@ -80,6 +79,7 @@ public class ControllerEstudiante {
 	        System.err.println("Error writing to persistence file: " + e.getMessage());
 	        return false; 
 	    }
+	   
 
 	    return true;
 	}
@@ -109,6 +109,20 @@ public class ControllerEstudiante {
 		}
 		
 		return true;
+	}
+	
+	public boolean crearReseñaActividad(int IDac, String texto, int rating, Aplicacion sistema ) {
+		
+		for(Actividad iter:sistema.getListaActividades()) {
+			if(iter.getID() == IDac) {
+				int IDuser = this.usuarioActual.getID(); 
+				Reseña nuevaReseña = new Reseña(texto, rating, IDuser);
+				iter.añadirReseña(nuevaReseña);
+				return true;
+			}
+		}
+		
+		return false;
 	}
 	
 	

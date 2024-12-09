@@ -45,8 +45,9 @@ public class DashBoardEstudiante extends JFrame {
         add(centerPanel, BorderLayout.CENTER);
 
         
-        JPanel rightPanel = new JPanel();
-        rightPanel.setLayout(new GridLayout(5, 1, 10, 10)); 
+        
+        JPanel panelDerecho = new JPanel();
+        panelDerecho.setLayout(new GridLayout(5, 1, 10, 10)); 
 
         
         btnIntereses = new JButton("Intereses");
@@ -61,16 +62,16 @@ public class DashBoardEstudiante extends JFrame {
         btnAbrirLp.setPreferredSize(new Dimension(150, 30)); 
 
         
-        rightPanel.add(btnIntereses);
-        rightPanel.add(btnInscribirLp);
-        rightPanel.add(btnQuitarLp);
-        rightPanel.add(btnCrearReseña);
-        rightPanel.add(btnAbrirLp);
+        panelDerecho.add(btnIntereses);
+        panelDerecho.add(btnInscribirLp);
+        panelDerecho.add(btnQuitarLp);
+        panelDerecho.add(btnCrearReseña);
+        panelDerecho.add(btnAbrirLp);
 
         
-        add(rightPanel, BorderLayout.EAST);
+        add(panelDerecho, BorderLayout.EAST);
 
-        
+       
         btnIntereses.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -124,7 +125,8 @@ public class DashBoardEstudiante extends JFrame {
 
     
     private void crearReseña() {
-        JOptionPane.showMessageDialog(this, "Crear una reseña para el Learning Path.", "Crear Reseña", JOptionPane.INFORMATION_MESSAGE);
+    	VentanaReseña ventanaParaReseña = new VentanaReseña(manager, sistema, controladorEstudiante, controladorProfesor,1);
+        
     }
 
     

@@ -6,9 +6,9 @@ import Actividades.*;
 
 public class QuizOpciones extends Actividad {
 	
-	int puntajeMinAprobar;
+	private int puntajeMinAprobar;
 	
-	ArrayList<PreguntaOpciones> preguntas; 
+	private ArrayList<PreguntaOpciones> preguntas; 
 	
 	public QuizOpciones(int ID, String titulo, String descripcion, String objetivos, String dificultad,Duration duracionEsperada, int IDcreador, int puntajeMin, ArrayList<PreguntaOpciones>  preguntas) {
 		

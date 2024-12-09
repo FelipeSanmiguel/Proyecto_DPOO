@@ -88,7 +88,7 @@ public class ManagerID {
 	public void añadirIDActividad(Actividad activ) {
 		int variableID;
 		variableID = activ.getID();
-		IDsUsuarios.add(variableID);
+		IDsActividades.add(variableID);
 	}
 	
 	/*

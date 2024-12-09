@@ -2,11 +2,11 @@ package Actividades;
 
 public class PreguntaBool {
 	
-	String textoPregunta;
+	private String textoPregunta;
 	
-	String explicacionRespuesta;
+	private String explicacionRespuesta;
 	
-	Boolean verdadero;
+	private Boolean verdadero;
 	
 	public PreguntaBool(String textoPregunta, String explicacionRespuesta, Boolean verdadero) {
 		
